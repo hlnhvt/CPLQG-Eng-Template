@@ -31,13 +31,33 @@ const NavBar = () => {
     return false;
   };
 
+  const featuredNewsSubMenu = [
+    { label: 'Policy Highlights', path: '/policy-highlights' },
+    { label: 'Legal Reform News', path: '/legal-reform-news' },
+    { label: 'International Cooperation', path: '/international-cooperation' }
+  ];
+
+  const corporateSupportSubMenu = [
+    { label: 'Legal Support for Foreign Businesses', path: '/corporate-support' },
+    { label: 'Legal Compliance Guide', path: '/corporate-support/compliance' },
+    { label: 'Documents & Contracts', path: '/corporate-support/documents' },
+    { label: 'FAQ for International Enterprises', path: '/corporate-support/faq' }
+  ];
+
+  const legalAssistanceSubMenu = [
+    { label: 'About the Legal Aid System', path: '/legal-aid/about' },
+    { label: 'Legal Aid News & Activities', path: '/legal-aid/news' },
+    { label: 'Find Legal Aid Providers', path: '/legal-aid/providers' },
+    { label: 'Legal Aid Documents', path: '/legal-aid/documents' }
+  ];
+
   const navItems = [
     { label: 'Home', path: '/', hasDropdown: false },
     { label: 'Introduction', path: '/introduction/about', hasDropdown: true, subMenu: introSubMenu },
-    { label: 'Featured news', path: '#', hasDropdown: true },
+    { label: 'Featured news', path: '#', hasDropdown: true, subMenu: featuredNewsSubMenu },
     { label: 'Legal document system', path: '/legal-document-system', hasDropdown: true, subMenu: legalDocSubMenu },
-    { label: 'Corporate legal support', path: '#', hasDropdown: true },
-    { label: 'Legal assistance', path: '#', hasDropdown: true },
+    { label: 'Corporate legal support', path: '/corporate-support', hasDropdown: true, subMenu: corporateSupportSubMenu },
+    { label: 'Legal assistance', path: '/legal-aid/about', hasDropdown: true, subMenu: legalAssistanceSubMenu },
   ];
 
   return (

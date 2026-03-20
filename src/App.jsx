@@ -25,6 +25,30 @@ import PolicySummaryDetail from './pages/LegalDocumentSystem/PolicySummaryDetail
 import DraftLegislation from './pages/LegalDocumentSystem/DraftLegislation';
 import DraftLegislationDetail from './pages/LegalDocumentSystem/DraftLegislationDetail';
 
+import PolicyHighlights from './pages/FeaturedNews/PolicyHighlights';
+import PolicyHighlightDetail from './pages/FeaturedNews/PolicyHighlightDetail';
+import LegalReformNews from './pages/FeaturedNews/LegalReformNews';
+import LegalReformNewsDetail from './pages/FeaturedNews/LegalReformNewsDetail';
+import InternationalCooperation from './pages/FeaturedNews/InternationalCooperation';
+import InternationalCooperationDetail from './pages/FeaturedNews/InternationalCooperationDetail';
+
+import LegalSupportForForeignBusinesses from './pages/CorporateLegalSupport/LegalSupportForForeignBusinesses';
+import LegalSupportDetail from './pages/CorporateLegalSupport/LegalSupportDetail';
+import LegalComplianceGuide from './pages/CorporateLegalSupport/LegalComplianceGuide';
+import ComplianceTopicDetail from './pages/CorporateLegalSupport/ComplianceTopicDetail';
+import DocumentsAndContracts from './pages/CorporateLegalSupport/DocumentsAndContracts';
+import DocumentContractDetail from './pages/CorporateLegalSupport/DocumentContractDetail';
+import FAQForInternationalEnterprises from './pages/CorporateLegalSupport/FAQForInternationalEnterprises';
+
+import AboutLegalAidSystem from './pages/LegalAssistance/AboutLegalAidSystem';
+import LegalAidNews from './pages/LegalAssistance/LegalAidNews';
+import LegalAidNewsDetail from './pages/LegalAssistance/LegalAidNewsDetail';
+import LegalAidProviders from './pages/LegalAssistance/LegalAidProviders';
+import LegalAidOrganizationDetail from './pages/LegalAssistance/LegalAidOrganizationDetail';
+import LegalAidIndividualDetail from './pages/LegalAssistance/LegalAidIndividualDetail';
+import LegalAidDocuments from './pages/LegalAssistance/LegalAidDocuments';
+import LegalAidDocumentDetail from './pages/LegalAssistance/LegalAidDocumentDetail';
+
 function App() {
   return (
     <Router>
@@ -54,6 +78,33 @@ function App() {
         <Route path="/policy-summary/:id" element={<PolicySummaryDetail />} />
         <Route path="/draft-legislation" element={<DraftLegislation />} />
         <Route path="/draft-legislation/:id" element={<DraftLegislationDetail />} />
+        
+        {/* Featured News Routes */}
+        <Route path="/policy-highlights" element={<PolicyHighlights />} />
+        <Route path="/policy-highlight/:id" element={<PolicyHighlightDetail />} />
+        <Route path="/legal-reform-news" element={<LegalReformNews />} />
+        <Route path="/legal-reform-news/:id" element={<LegalReformNewsDetail />} />
+        <Route path="/international-cooperation" element={<InternationalCooperation />} />
+        <Route path="/international-cooperation/:id" element={<InternationalCooperationDetail />} />
+
+        {/* Corporate Legal Support Routes */}
+        <Route path="/corporate-support" element={<LegalSupportForForeignBusinesses />} />
+        <Route path="/corporate-support/programs/:id" element={<LegalSupportDetail />} />
+        <Route path="/corporate-support/compliance" element={<LegalComplianceGuide />} />
+        <Route path="/corporate-support/compliance/:id" element={<ComplianceTopicDetail />} />
+        <Route path="/corporate-support/documents" element={<DocumentsAndContracts />} />
+        <Route path="/corporate-support/documents/:id" element={<DocumentContractDetail />} />
+        <Route path="/corporate-support/faq" element={<FAQForInternationalEnterprises />} />
+
+        {/* Legal Assistance Routes */}
+        <Route path="/legal-aid/about" element={<AboutLegalAidSystem />} />
+        <Route path="/legal-aid/news" element={<LegalAidNews />} />
+        <Route path="/legal-aid/news/:id" element={<LegalAidNewsDetail />} />
+        <Route path="/legal-aid/providers" element={<LegalAidProviders />} />
+        <Route path="/legal-aid/organizations/:id" element={<LegalAidOrganizationDetail />} />
+        <Route path="/legal-aid/individuals/:id" element={<LegalAidIndividualDetail />} />
+        <Route path="/legal-aid/documents" element={<LegalAidDocuments />} />
+        <Route path="/legal-aid/documents/:id" element={<LegalAidDocumentDetail />} />
       </Routes>
     </Router>
   );
