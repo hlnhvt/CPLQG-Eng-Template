@@ -43,7 +43,7 @@ const LegalSystem = () => {
       <Header />
 
       {/* CPLQG-EN-226.MH01: Header */}
-      <section className="bg-gradient-to-r from-[#1e3a8a] to-[#3b82f6] text-white py-24 px-4 relative overflow-hidden">
+      <section className="bg-gradient-to-r from-[#1e3a8a] to-[#3b82f6] text-white py-12 px-4 relative overflow-hidden">
         {/* Abstract Background Elements */}
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/black-scales.png')] opacity-5 mix-blend-overlay"></div>
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-500/20 rounded-full blur-[100px] pointer-events-none"></div>
@@ -63,7 +63,7 @@ const LegalSystem = () => {
         </div>
       </section>
 
-      <main className="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 flex flex-col lg:flex-row gap-12 w-full items-start relative z-20">
+      <main className="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex flex-col lg:flex-row gap-8 w-full items-start relative z-20">
 
         {/* Sticky Sidebar */}
         <aside className="w-full lg:w-1/4 hidden lg:block sticky top-28">
@@ -103,7 +103,7 @@ const LegalSystem = () => {
               </span>
               Legal Framework Hierarchy
             </h2>
-            <div className="bg-white p-8 md:p-12 rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 flex flex-col md:flex-row gap-12 items-center">
+            <div className="bg-white p-8 md:p-12 rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 flex flex-col md:flex-row gap-8 items-center">
 
               <div className="flex-1 space-y-6 text-lg text-slate-600 font-serif leading-relaxed">
                 <p className="first-letter:text-6xl first-letter:font-bold first-letter:text-indigo-800 first-letter:mr-2 first-letter:float-left first-letter:leading-none">

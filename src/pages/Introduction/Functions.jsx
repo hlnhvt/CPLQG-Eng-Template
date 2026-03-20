@@ -60,7 +60,7 @@ const Functions = () => {
       <Header />
 
       {/* Title Section (CPLQG-EN-220.MH01) */}
-      <section className="relative bg-gradient-to-r from-[#1e3a8a] to-[#3b82f6] text-white py-24 px-4 overflow-hidden">
+      <section className="relative bg-gradient-to-r from-[#1e3a8a] to-[#3b82f6] text-white py-12 px-4 overflow-hidden">
         {/* Dynamic Abstract Background */}
         <div className="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] mix-blend-overlay"></div>
         <div className="absolute -top-32 -left-32 w-80 h-80 bg-blue-600 rounded-full mix-blend-screen filter blur-[100px] opacity-40 animate-pulse"></div>
@@ -84,11 +84,11 @@ const Functions = () => {
       </section>
 
       {/* Grid Section */}
-      <main className="flex-grow py-24 px-4 sm:px-6 lg:px-8 relative">
+      <main className="flex-grow py-12 px-4 sm:px-6 lg:px-8 relative">
         <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-[#0b2447]/5 to-transparent pointer-events-none"></div>
 
         <div className="max-w-7xl mx-auto relative z-10">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 lg:gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 lg:gap-8">
             {groups.map((group, index) => (
               <div
                 key={group.id}

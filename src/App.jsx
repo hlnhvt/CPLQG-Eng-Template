@@ -14,6 +14,10 @@ import SearchContent from './pages/Introduction/SearchContent';
 import LegalSystem from './pages/Introduction/LegalSystem';
 import LegalFAQ from './pages/Introduction/LegalFAQ';
 
+// Notification Routes
+import SubscribePage from './pages/Notifications/SubscribePage';
+import UnsubscribePage from './pages/Notifications/UnsubscribePage';
+
 function App() {
   return (
     <Router>
@@ -31,6 +35,10 @@ function App() {
         <Route path="/introduction/search-content" element={<SearchContent />} />
         <Route path="/introduction/vietnamese-legal-system" element={<LegalSystem />} />
         <Route path="/introduction/legal-faq" element={<LegalFAQ />} />
+
+        {/* Notification Routes */}
+        <Route path="/subscribe" element={<SubscribePage />} />
+        <Route path="/unsubscribe" element={<UnsubscribePage />} />
       </Routes>
     </Router>
   );

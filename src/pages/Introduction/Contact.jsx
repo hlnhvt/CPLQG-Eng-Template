@@ -67,7 +67,7 @@ const Contact = () => {
       <Header />
 
       {/* Hero Banner (CPLQG-EN-223.MH01) */}
-      <section className="relative bg-gradient-to-r from-[#1e3a8a] to-[#3b82f6] text-white py-24 px-4 overflow-hidden">
+      <section className="relative bg-gradient-to-r from-[#1e3a8a] to-[#3b82f6] text-white py-12 px-4 overflow-hidden">
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1577563908411-50cb98976fea?q=80&w=2000&auto=format&fit=crop')] bg-cover bg-center opacity-20 mix-blend-luminosity"></div>
         <div className="absolute inset-0 bg-gradient-to-t from-slate-50 via-transparent to-transparent"></div>
 
@@ -88,7 +88,7 @@ const Contact = () => {
         </div>
       </section>
 
-      <main className="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 w-full mb-20 relative z-20">
+      <main className="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 w-full mb-10 relative z-20">
 
         {/* 2 Column Layout (CPLQG-EN-223.MH02) */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">

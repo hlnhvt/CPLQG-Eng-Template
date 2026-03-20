@@ -73,7 +73,7 @@ const SearchContent = () => {
       <Header />
 
       {/* CPLQG-EN-225.MH01: Advanced Search Hero */}
-      <section className="bg-gradient-to-r from-[#1e3a8a] to-[#3b82f6] text-white pt-16 pb-24 px-4 relative overflow-hidden">
+      <section className="bg-gradient-to-r from-[#1e3a8a] to-[#3b82f6] text-white pt-10 pb-12 px-4 relative overflow-hidden">
         {/* Abstract Backgrounds */}
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-20 mix-blend-overlay"></div>
         <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/20 rounded-full blur-[80px] pointer-events-none"></div>

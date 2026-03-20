@@ -88,7 +88,7 @@ const LegalFAQ = () => {
       <Header />
 
       {/* CPLQG-EN-227.MH01: Hero Banner */}
-      <section className="bg-gradient-to-r from-[#1e3a8a] to-[#3b82f6] border-b border-slate-800 pt-20 pb-28 px-4 relative overflow-hidden">
+      <section className="bg-gradient-to-r from-[#1e3a8a] to-[#3b82f6] border-b border-slate-800 pt-12 pb-10 px-4 relative overflow-hidden">
         {/* Abstract Backgrounds */}
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.03] mix-blend-overlay"></div>
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-indigo-600/20 blur-[120px] rounded-full pointer-events-none"></div>
@@ -131,7 +131,7 @@ const LegalFAQ = () => {
         </div>
       </section>
 
-      <main className="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex flex-col lg:flex-row gap-10 w-full relative z-20 -mt-16">
+      <main className="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex flex-col lg:flex-row gap-10 w-full relative z-20 -mt-10">
 
         {/* Sidebar Categories (CPLQG-EN-227.MH02) */}
         <aside className="w-full lg:w-1/3 xl:w-1/4 shrink-0">
@@ -175,7 +175,7 @@ const LegalFAQ = () => {
         </aside>
 
         {/* FAQ Accordion Area (CPLQG-EN-227.MH03) */}
-        <div className="w-full lg:w-2/3 xl:w-3/4 pb-20">
+        <div className="w-full lg:w-2/3 xl:w-3/4 pb-12">
 
           <div className="bg-white rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 p-6 md:p-10 min-h-[500px]">
 
@@ -243,7 +243,7 @@ const LegalFAQ = () => {
                 })
               ) : (
                 /* Empty State (CPLQG-EN-227.MH04) */
-                <div className="text-center py-24 bg-slate-50/50 rounded-2xl border border-dashed border-slate-300">
+                <div className="text-center py-12 bg-slate-50/50 rounded-2xl border border-dashed border-slate-300">
                   <div className="relative w-24 h-24 mx-auto mb-6">
                     <div className="absolute inset-0 bg-slate-200 rounded-full animate-ping opacity-20"></div>
                     <div className="w-24 h-24 bg-white rounded-full flex items-center justify-center text-slate-300 border border-slate-200 shadow-sm relative z-10">

@@ -9,7 +9,7 @@ const OpenLetter = () => {
 
       {/* Title Area (CPLQG-EN-219.MH01) */}
 
-      <main className="flex-grow py-20 px-4 sm:px-6 lg:px-8 relative">
+      <main className="flex-grow py-12 px-4 sm:px-6 lg:px-8 relative">
         <div className="absolute top-0 left-0 w-full h-64 bg-gradient-to-b from-[#0b2447]/5 to-transparent pointer-events-none"></div>
 
         <article className="max-w-4xl mx-auto bg-white rounded-3xl shadow-[0_20px_50px_rgba(8,_112,_184,_0.07)] overflow-hidden border border-gray-100 relative group transition-all duration-500 hover:shadow-[0_20px_60px_rgba(8,_112,_184,_0.12)]">
@@ -56,7 +56,7 @@ const OpenLetter = () => {
             </div>
 
             {/* Signature Block */}
-            <footer className="mt-20 pt-10 border-t border-gray-100 flex flex-col md:flex-row items-center md:items-end justify-between gap-10">
+            <footer className="mt-10 pt-10 border-t border-gray-100 flex flex-col md:flex-row items-center md:items-end justify-between gap-10">
               <div className="flex items-center gap-6 order-2 md:order-1">
                 {/* Portrait */}
                 <div className="relative w-28 h-28 rounded-full p-1 bg-gradient-to-tr from-blue-600 to-red-500 shadow-lg group-hover:shadow-xl transition-shadow duration-300">

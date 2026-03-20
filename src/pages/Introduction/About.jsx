@@ -41,10 +41,10 @@ const About = () => {
         </div>
       </section>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
 
         {/* Introduction Article & Infographic (CPLQG-EN-218.MH02) */}
-        <section className="flex flex-col lg:flex-row gap-16 mb-24 items-center">
+        <section className="flex flex-col lg:flex-row gap-8 mb-12 items-center">
           <div className="flex-1 space-y-6">
             <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-blue-50 text-blue-700 font-semibold text-sm mb-2 border border-blue-100">
               <span className="w-2 h-2 rounded-full bg-blue-600 animate-ping"></span>
@@ -82,7 +82,7 @@ const About = () => {
         </section>
 
         {/* Video Section (CPLQG-EN-218.MH03) */}
-        <section className="mb-24 relative">
+        <section className="mb-12 relative">
           <div className="absolute -inset-x-4 sm:-inset-x-6 lg:-inset-x-8 -inset-y-12 bg-gray-900/5 skew-y-3 -z-10"></div>
 
           <div className="text-center mb-12">
@@ -104,7 +104,7 @@ const About = () => {
 
         {/* Feature Cards (CPLQG-EN-218.MH04) */}
         <section>
-          <div className="text-center mb-16">
+          <div className="text-center mb-10">
             <h2 className="text-3xl font-bold text-gray-900 mb-4 inline-block relative">
               Key Features
               <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-12 h-1 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full"></span>

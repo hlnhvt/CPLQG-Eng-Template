@@ -29,7 +29,7 @@ const Vision = () => {
 
         <div className="relative z-10 max-w-5xl mx-auto px-4 text-center">
           {/* Vision Block */}
-          <div className="mb-20 transform -translate-y-4 animate-[fadeIn_1s_ease-out_forwards] flex flex-col items-center text-center">
+          <div className="mb-10 transform -translate-y-4 animate-[fadeIn_1s_ease-out_forwards] flex flex-col items-center text-center">
             <div className="flex justify-center mb-6">
               <img src="/favicon.svg" alt="National Emblem" className="w-20 h-20 md:w-24 md:h-24 drop-shadow-lg" />
             </div>
@@ -74,7 +74,7 @@ const Vision = () => {
 
         {/* CPLQG-EN-221.MH02: Strategic Goals */}
         <div className="max-w-7xl mx-auto mb-40">
-          <div className="text-center mb-20 relative">
+          <div className="text-center mb-10 relative">
             <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6 uppercase tracking-wider">Strategic Goals</h2>
             <div className="absolute left-1/2 -bottom-4 -translate-x-1/2 w-24 h-1.5 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full"></div>
           </div>
@@ -113,7 +113,7 @@ const Vision = () => {
             {/* Background embellishments */}
             <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-50/50 rounded-full mix-blend-multiply filter blur-3xl opacity-50 pointer-events-none"></div>
 
-            <div className="text-center mb-24 relative z-10">
+            <div className="text-center mb-12 relative z-10">
               <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6 uppercase tracking-wider">Development Milestones</h2>
               <div className="absolute left-1/2 -bottom-4 -translate-x-1/2 w-24 h-1.5 bg-gradient-to-r from-red-500 to-orange-500 rounded-full"></div>
             </div>
@@ -126,7 +126,7 @@ const Vision = () => {
                 <div className="absolute top-0 left-0 h-full rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 w-3/5"></div>
               </div>
 
-              <div className="flex justify-between relative mt-16">
+              <div className="flex justify-between relative mt-10">
                 {milestones.map((m, idx) => {
                   const isActive = parseInt(m.year) <= 2024;
                   return (

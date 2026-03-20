@@ -86,7 +86,7 @@ const LinkedWebsites = () => {
       {/* Target: CPLQG-EN-224.MH01: Linked portal system section */}
       
       {/* Decorative Top Banner */}
-      <section className="bg-gradient-to-r from-[#1e3a8a] to-[#3b82f6] border-b border-blue-900 text-white pt-20 pb-24 px-4 relative overflow-hidden">
+      <section className="bg-gradient-to-r from-[#1e3a8a] to-[#3b82f6] border-b border-blue-900 text-white pt-12 pb-12 px-4 relative overflow-hidden">
          {/* Abstract background */}
          <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/connected.png')] opacity-20 mix-blend-overlay"></div>
          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-2xl h-64 bg-blue-600/20 blur-[100px] rounded-full point-events-none"></div>
@@ -104,7 +104,7 @@ const LinkedWebsites = () => {
          </div>
       </section>
 
-      <main className="flex-grow pb-24 px-4 sm:px-6 lg:px-8 relative -mt-10 z-20">
+      <main className="flex-grow pb-12 px-4 sm:px-6 lg:px-8 relative -mt-10 z-20">
         <div className="max-w-7xl mx-auto">
           
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8">

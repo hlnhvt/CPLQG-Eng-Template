@@ -1,521 +1,287 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
-import { Search, ChevronDown, ChevronRight, Book, HelpCircle, FileText, Settings, UserPlus, Zap, Image as ImageIcon, PlayCircle, ExternalLink, ArrowRight, ArrowLeft } from 'lucide-react';
+import { Search, Filter, FileText, Eye, Download, ChevronRight, ChevronDown, ChevronLeft, SlidersHorizontal, Settings2, LayoutList } from 'lucide-react';
 
 const UserGuide = () => {
-  // State for managing views (mh01 = homepage, mh02 = article detail)
-  const [currentView, setCurrentView] = useState('mh01');
-  const [activeArticle, setActiveArticle] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
 
-  // Sidebar expand/collapse state
-  const [expandedCategories, setExpandedCategories] = useState({
-    cat1: true,
-    cat2: false,
-    cat3: false,
-    cat4: false
-  });
+  const topics = [
+    "Forum", "Feedback", "Legal Support", "Survey", "Technical", "Report", "Notification", "Legal Search", "AI Assistant", "Account", "Consultancy"
+  ];
 
-  // Scrollspy logic for Right Sidebar ToC in MH02
-  const [activeHeading, setActiveHeading] = useState('');
-  const contentRef = useRef(null);
+  const operations = [
+    "Newsletter", "Expertise", "Technology", "Draft Legal Documents", "Q&A", "Recommendation", "Research & Exchange", "Personal Management", "User Management", "Mobile Devices", "Statistics", "Legal Normative Documents", "Policy Opinions"
+  ];
 
-  // Mock Data: Category Tree
-  const categories = [
+  const guides = [
     {
-      id: 'cat1',
-      title: 'Getting Started',
-      icon: PlayCircle,
-      color: 'text-indigo-600',
-      bg: 'bg-indigo-50',
-      desc: 'Essential information to begin using the platform efficiently.',
-      articles: [
-        { id: 'art1', title: 'Platform Overview & Introduction' },
-        { id: 'art2', title: 'Setting Up Your Language Preferences' },
-        { id: 'art3', title: 'Understanding the Dashboard' }
-      ]
+      id: 1,
+      title: "Account Registration and System Login Guide",
+      format: "PDF",
+      filename: "HDSD_01_DangKy_DangNhap_v1.0.pdf",
+      date: "05/01/2026",
+      badges: ["Account", "User Management"],
+      desc: "Comprehensive steps to create an account, verify email, and log into the National Legal Portal...",
+      fileColor: "text-red-500 bg-red-50 border-red-200"
     },
     {
-      id: 'cat2',
-      title: 'Search & Navigation',
-      icon: Search,
-      color: 'text-blue-600',
-      bg: 'bg-blue-50',
-      desc: 'Master the full-text search engine and advanced filtering.',
-      articles: [
-        { id: 'art4', title: 'Basic Keyword Searching' },
-        { id: 'art5', title: 'Using Advanced Filters & Metadata' },
-        { id: 'art6', title: 'Locating Specific Legal Decisions' }
-      ]
+      id: 2,
+      title: "Legal Violation Lookup Guide",
+      format: "PDF",
+      filename: "HDSD_02_TraCuu_VPPL_v2.1.pdf",
+      date: "06/01/2026",
+      badges: ["Legal Search", "Legal Normative Documents"],
+      desc: "Detailed instructions on methods to search for legal normative documents using basic, advanced, and domain-specific search...",
+      fileColor: "text-red-500 bg-red-50 border-red-200"
     },
     {
-      id: 'cat3',
-      title: 'Reading & Downloading',
-      icon: Book,
-      color: 'text-emerald-600',
-      bg: 'bg-emerald-50',
-      desc: 'How to interact with document details and export files.',
-      articles: [
-        { id: 'art7', title: 'Reading Document Excerpts' },
-        { id: 'art8', title: 'Downloading PDF and DOCX Files' },
-        { id: 'art9', title: 'Understanding Legal Status Badges' }
-      ]
+      id: 3,
+      title: "Using the Legal Q&A Feature Guide",
+      format: "PDF",
+      filename: "HDSD_03_HoiDap_PhapLuat_v1.5.pdf",
+      date: "10/01/2026",
+      badges: ["Legal Support", "Q&A"],
+      desc: "Guide users on how to submit legal questions, track processing status, and interact with legal experts...",
+      fileColor: "text-red-500 bg-red-50 border-red-200"
     },
     {
-      id: 'cat4',
-      title: 'Account & Support',
-      icon: UserPlus,
-      color: 'text-rose-600',
-      bg: 'bg-rose-50',
-      desc: 'Managing your profile, bookmarks, and getting technical help.',
-      articles: [
-        { id: 'art10', title: 'Creating an Account (Coming Soon)' },
-        { id: 'art11', title: 'Submitting Feedback on Translations' },
-        { id: 'art12', title: 'Contacting Technical Support' }
-      ]
+      id: 4,
+      title: "Online Legal Consultation Booking Guide",
+      format: "DOCX",
+      filename: "HDSD_04_DatLich_TuVan_v1.0.docx",
+      date: "12/01/2026",
+      badges: ["Consultancy", "Expertise"],
+      desc: "Procedure to schedule an appointment, confirm schedules, participate in video calls with lawyers, and rate consultation quality...",
+      fileColor: "text-blue-500 bg-blue-50 border-blue-200"
+    },
+    {
+      id: 5,
+      title: "Participating in Draft Document Feedback Guide",
+      format: "PDF",
+      filename: "HDSD_05_GopY_DuThao_v2.0.pdf",
+      date: "15/01/2026",
+      badges: ["Feedback", "Draft Legal Documents"],
+      desc: "Steps to access draft documents, read detailed contents, and submit contributions to the drafting agencies...",
+      fileColor: "text-red-500 bg-red-50 border-red-200"
+    },
+    {
+      id: 6,
+      title: "Using AI Legal Assistant Guide",
+      format: "PDF",
+      filename: "HDSD_06_TroLy_AI_v1.1.pdf",
+      date: "18/01/2026",
+      badges: ["AI Assistant", "Technology"],
+      desc: "How to interact with the integrated AI legal assistant: asking questions in natural language, looking up clauses, reviewing documents...",
+      fileColor: "text-red-500 bg-red-50 border-red-200"
+    },
+    {
+      id: 7,
+      title: "Personal Legal Bookshelf Management Guide",
+      format: "DOCX",
+      filename: "HDSD_07_TuSach_CaNhan_v1.0.docx",
+      date: "20/01/2026",
+      badges: ["Account", "Personal Management"],
+      desc: "Save documents into personal collections, create notes, add custom tags, and export list of saved documents...",
+      fileColor: "text-blue-500 bg-blue-50 border-blue-200"
+    },
+    {
+      id: 8,
+      title: "Legal Information Notification Registration Guide",
+      format: "PDF",
+      filename: "HDSD_08_DangKy_ThongBao_v1.3.pdf",
+      date: "22/01/2026",
+      badges: ["Notification", "Newsletter"],
+      desc: "Set up areas of interest, frequency of notifications, and manage newsletter subscriptions via email...",
+      fileColor: "text-red-500 bg-red-50 border-red-200"
+    },
+    {
+      id: 9,
+      title: "Using the Research & Exchange Forum Guide",
+      format: "PDF",
+      filename: "HDSD_09_DienDan_NghienCuu_v1.1.pdf",
+      date: "25/01/2026",
+      badges: ["Forum", "Research & Exchange"],
+      desc: "Rules for participating in academic forums: posting research articles, commenting, and interacting with colleagues...",
+      fileColor: "text-red-500 bg-red-50 border-red-200"
+    },
+    {
+      id: 10,
+      title: "Mobile Device Access Guide",
+      format: "PDF",
+      filename: "HDSD_10_Mobile_PWA_v1.2.pdf",
+      date: "28/01/2026",
+      badges: ["Technical", "Mobile Devices"],
+      desc: "Instructions for accessing and using features of the National Legal Portal on mobile devices, interface customization...",
+      fileColor: "text-red-500 bg-red-50 border-red-200"
     }
   ];
 
-  // Helper functions
-  const toggleCategory = (catId) => {
-    setExpandedCategories(prev => ({
-      ...prev,
-      [catId]: !prev[catId]
-    }));
-  };
-
-  const openArticle = (catId, articleId) => {
-    const cat = categories.find(c => c.id === catId);
-    const art = cat.articles.find(a => a.id === articleId);
-
-    // Auto-expand the category if it's not already
-    setExpandedCategories(prev => ({ ...prev, [catId]: true }));
-
-    // Set active article and switch view
-    setActiveArticle({ ...art, category: cat });
-    setCurrentView('mh02');
-    window.scrollTo(0, 0); // Scroll to top when opening article
-  };
-
-  const goHome = () => {
-    setCurrentView('mh01');
-    setActiveArticle(null);
-    setSearchQuery('');
-    window.scrollTo(0, 0);
-  };
-
-  // Scrollspy Effect for Article View
-  useEffect(() => {
-    if (currentView !== 'mh02') return;
-
-    const handleScroll = () => {
-      if (!contentRef.current) return;
-      const headings = Array.from(contentRef.current.querySelectorAll('h2, h3'));
-      if (headings.length === 0) return;
-
-      const scrollPosition = window.scrollY + 150; // Offset for header
-      let currentActiveId = '';
-
-      for (const heading of headings) {
-        if (heading.offsetTop <= scrollPosition) {
-          currentActiveId = heading.id;
-        } else {
-          break; // Stop checking once we pass the current scroll position
-        }
-      }
-
-      if (currentActiveId && currentActiveId !== activeHeading) {
-        setActiveHeading(currentActiveId);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    // Initial check
-    setTimeout(handleScroll, 100);
-
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [currentView, activeArticle]);
-
-  // Smooth scroll for ToC links
-  const scrollToHeading = (e, id) => {
-    e.preventDefault();
-    const element = document.getElementById(id);
-    if (element) {
-      const headerOffset = 120; // Adjust based on your sticky header height
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth"
-      });
-      setActiveHeading(id);
-    }
-  };
-
-
-  // ==========================================
-  // RENDER HELPERS
-  // ==========================================
-
-  const renderSidebar = () => (
-    <div className="bg-white rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 overflow-hidden sticky top-24">
-      {/* Search Bar in Sidebar */}
-      <div className="p-4 border-b border-slate-100">
-        <div className="relative">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
-          <input
-            type="text"
-            placeholder="Search guides..."
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-9 pr-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm outline-none focus:border-indigo-400 focus:bg-white transition-all text-slate-700 placeholder-slate-400"
-          />
-        </div>
-      </div>
-
-      {/* Navigation Tree */}
-      <div className="p-2 py-4 max-h-[calc(100vh-250px)] overflow-y-auto custom-scrollbar">
-        <div className="px-4 mb-3">
-          <span className="text-xs font-black uppercase text-slate-400 tracking-widest">Categories</span>
-        </div>
-
-        <ul className="space-y-1">
-          {categories.map(cat => (
-            <li key={cat.id} className="mb-1">
-              {/* Category Header */}
-              <button
-                onClick={() => toggleCategory(cat.id)}
-                className="w-full flex items-center justify-between px-4 py-2 hover:bg-slate-50 rounded-xl transition-colors text-left"
-              >
-                <span className={`text-sm font-bold flex items-center gap-2 ${expandedCategories[cat.id] ? 'text-indigo-700' : 'text-slate-700'}`}>
-                  <cat.icon className={`w-4 h-4 ${expandedCategories[cat.id] ? 'text-indigo-600' : 'text-slate-400'}`} />
-                  {cat.title}
-                </span>
-                <ChevronDown className={`w-4 h-4 text-slate-400 transition-transform duration-300 ${expandedCategories[cat.id] ? 'rotate-180 text-indigo-400' : ''}`} />
-              </button>
-
-              {/* Articles List (Collapsible) */}
-              <div className={`overflow-hidden transition-all duration-300 ease-in-out ${expandedCategories[cat.id] ? 'max-h-[500px] opacity-100 mt-1' : 'max-h-0 opacity-0'}`}>
-                <ul className="relative before:absolute before:inset-0 before:ml-[1.4rem] before:h-full before:w-px before:bg-slate-200 ml-2 space-y-0.5">
-                  {cat.articles.map(art => {
-                    const isCurrentArticle = activeArticle && activeArticle.id === art.id;
-                    return (
-                      <li key={art.id} className="relative z-10">
-                        <button
-                          onClick={() => openArticle(cat.id, art.id)}
-                          className={`w-full text-left pl-8 pr-4 py-2 text-[13px] rounded-r-xl rounded-l-md transition-all ${isCurrentArticle ? 'text-indigo-700 font-bold bg-indigo-50/50 before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-[3px] before:h-2/3 before:bg-indigo-600 before:rounded-r-full' : 'text-slate-600 font-medium hover:text-indigo-600 hover:bg-slate-50'}`}
-                        >
-                          {art.title}
-                        </button>
-                      </li>
-                    );
-                  })}
-                </ul>
-              </div>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </div>
-  );
-
-  const renderMH01 = () => (
-    <div className="animate-in fade-in zoom-in-95 duration-500">
-      <div className="mb-12">
-        <h2 className="text-3xl font-extrabold text-slate-800 mb-4 tracking-tight">How can we help you?</h2>
-        <p className="text-lg text-slate-500">Choose a category below to browse our comprehensive guides and documentation.</p>
-      </div>
-
-      {categories.length > 0 ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {categories.map((cat, i) => (
-            <div key={cat.id}
-              className="bg-white rounded-3xl p-8 border border-slate-100 shadow-[0_4px_20px_rgb(0,0,0,0.03)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] transition-all duration-300 group hover:-translate-y-1 cursor-pointer flex flex-col"
-              // Open first article of category as default when clicking the card itself (optional UX enhancement)
-              onClick={() => openArticle(cat.id, cat.articles[0].id)}
-            >
-              <div className="flex items-start justify-between mb-6">
-                <div className={`w-14 h-14 rounded-2xl ${cat.bg} ${cat.color} flex items-center justify-center shrink-0 shadow-sm border border-slate-50 group-hover:scale-110 transition-transform duration-300`}>
-                  <cat.icon className="w-7 h-7" />
-                </div>
-                <span className="text-xs font-black px-3 py-1 bg-slate-100 text-slate-500 rounded-lg">{cat.articles.length} articles</span>
-              </div>
-
-              <h3 className="text-xl font-bold text-slate-800 mb-3 group-hover:text-indigo-600 transition-colors">{cat.title}</h3>
-              <p className="text-sm text-slate-500 mb-8 leading-relaxed font-serif line-clamp-2 flex-grow">{cat.desc}</p>
-
-              <div className="border-t border-slate-100 pt-6 mt-auto">
-                <ul className="space-y-3">
-                  {cat.articles.slice(0, 3).map(art => (
-                    <li key={art.id}>
-                      <button
-                        onClick={(e) => { e.stopPropagation(); openArticle(cat.id, art.id); }}
-                        className="text-[14px] font-medium text-slate-700 hover:text-indigo-600 flex items-center gap-2 group/link w-full text-left"
-                      >
-                        <FileText className="w-4 h-4 text-slate-400 group-hover/link:text-indigo-500 shrink-0" />
-                        <span className="truncate">{art.title}</span>
-                      </button>
-                    </li>
-                  ))}
-                  {cat.articles.length > 3 && (
-                    <li>
-                      <span className="text-[13px] font-bold text-indigo-500 flex items-center gap-1 pl-6">
-                        View all {cat.articles.length} articles <ChevronRight className="w-3 h-3" />
-                      </span>
-                    </li>
-                  )}
-                </ul>
-              </div>
-            </div>
-          ))}
-        </div>
-      ) : (
-        <div className="text-center py-20 bg-white rounded-3xl border border-dashed border-slate-300">
-          <p className="text-slate-500">No content available yet.</p>
-        </div>
-      )}
-    </div>
-  );
-
-  const renderMH02 = () => {
-    if (!activeArticle) return null;
-
-    // Helper to find next and prev articles
-    const flatArticles = categories.flatMap(c => c.articles.map(a => ({ ...a, category: c })));
-    const currentIndex = flatArticles.findIndex(a => a.id === activeArticle.id);
-    const prevArticle = currentIndex > 0 ? flatArticles[currentIndex - 1] : null;
-    const nextArticle = currentIndex < flatArticles.length - 1 ? flatArticles[currentIndex + 1] : null;
-
-    // Static mock content based on article title for demonstration
-    const renderMockContent = () => (
-      <div className="prose prose-lg prose-indigo max-w-none text-slate-600 font-serif leading-relaxed" ref={contentRef}>
-        <p className="lead text-xl text-slate-500 font-sans mb-8">
-          This is an automatically generated detail view for <strong>{activeArticle.title}</strong> based on the SRS 222 MH02 specifications.
-        </p>
-
-        <h2 id="section-1" className="scroll-mt-32 font-sans font-extrabold text-2xl text-slate-800 mt-10 mb-6 flex items-center gap-3">
-          <span className="w-8 h-8 rounded-lg bg-indigo-100 text-indigo-600 flex items-center justify-center text-sm">1</span>
-          Introduction to the Topic
-        </h2>
-        <p>The National Legal Portal is designed with advanced architectural patterns to ensure high availability and ease of access for international users navigating the Vietnamese legal framework. Understanding the core layout will significantly reduce search time.</p>
-
-        {/* Mock Image Placeholder */}
-        <div className="my-10 border border-slate-200 rounded-2xl overflow-hidden bg-slate-50 flex flex-col items-center justify-center p-12 relative group">
-          <ImageIcon className="w-16 h-16 text-slate-300 mb-4 group-hover:scale-110 transition-transform" strokeWidth={1} />
-          <p className="font-sans text-sm font-bold text-slate-400">Content Illustration Placeholder</p>
-          <p className="text-xs text-slate-400 mt-2 font-sans italic">Image loaded via CMS</p>
-        </div>
-
-        <h3 id="section-1-1" className="scroll-mt-32 font-sans font-bold text-xl text-slate-800 mt-8 mb-4">Key Benefits</h3>
-        <ul>
-          <li><strong>Bilingual Support:</strong> Real-time translation contexts.</li>
-          <li><strong>Metadata Rich:</strong> Every document includes deep links to its amending counterparts.</li>
-          <li><strong>Export Friendly:</strong> One-click PDF generation.</li>
-        </ul>
-
-        <h2 id="section-2" className="scroll-mt-32 font-sans font-extrabold text-2xl text-slate-800 mt-12 mb-6 flex items-center gap-3">
-          <span className="w-8 h-8 rounded-lg bg-indigo-100 text-indigo-600 flex items-center justify-center text-sm">2</span>
-          Step-by-Step Instructions
-        </h2>
-        <p>Follow these steps to fully utilize the specific feature described in this article. Ensure you are logged into your organization account if attempting to submit draft feedback.</p>
-
-        <div className="bg-blue-50/50 border border-blue-100 rounded-2xl p-6 my-8 font-sans">
-          <ol className="list-decimal list-outside ml-4 space-y-3 text-slate-700">
-            <li>Locate the <strong>Global Search Bar</strong> at the top of the interface.</li>
-            <li>Enter your precise query (e.g., "Law on Enterprise 2020").</li>
-            <li>Press Enter or click the Search icon.</li>
-            <li>Filter the results using the Left Sidebar on the Search Results page.</li>
-          </ol>
-        </div>
-
-        <h2 id="section-3" className="scroll-mt-32 font-sans font-extrabold text-2xl text-slate-800 mt-12 mb-6 flex items-center gap-3">
-          <span className="w-8 h-8 rounded-lg bg-indigo-100 text-indigo-600 flex items-center justify-center text-sm">3</span>
-          Troubleshooting
-        </h2>
-        <p>If you experience issues, such as a file failing to download, please check your network connection first. If the problem persists, the document might be undergoing an urgent metadata update by our editorial team.</p>
-      </div>
-    );
-
-    return (
-      <div className="w-full flex flex-col xl:flex-row gap-10 animate-in fade-in slide-in-from-right-8 duration-500">
-
-        {/* Left Side: Article Content */}
-        <div className="w-full xl:w-3/4">
-          <div className="bg-white rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 p-8 md:p-12">
-
-            {/* Breadcrumb */}
-            <nav className="flex items-center gap-2 text-sm font-medium text-slate-500 mb-8 font-sans overflow-x-auto whitespace-nowrap pb-2">
-              <button onClick={goHome} className="hover:text-indigo-600 flex items-center gap-1 transition-colors">
-                <Book className="w-4 h-4" /> User Guide
-              </button>
-              <ChevronRight className="w-4 h-4 text-slate-300 shrink-0" />
-              <button onClick={goHome} className="hover:text-indigo-600 transition-colors">
-                {activeArticle.category.title}
-              </button>
-              <ChevronRight className="w-4 h-4 text-slate-300 shrink-0" />
-              <span className="text-slate-800 font-bold truncate">{activeArticle.title}</span>
-            </nav>
-
-            {/* Article Header */}
-            <header className="mb-10 pb-8 border-b border-slate-100 relative">
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-800 tracking-tight leading-tight mb-4">
-                {activeArticle.title}
-              </h1>
-              <p className="text-lg text-slate-500 font-serif">
-                Learn how to navigate and utilize this specific feature within the National Legal Portal.
-              </p>
-              {/* Decorative accent */}
-              <div className="absolute bottom-[-2px] left-0 w-24 h-1 bg-indigo-600 rounded-full"></div>
-            </header>
-
-            {/* Mobile/Tablet In-page ToC (Hidden on XL screens where right sidebar takes over) */}
-            <div className="xl:hidden bg-slate-50 border border-slate-200 rounded-2xl p-6 mb-10">
-              <h4 className="font-extrabold text-slate-800 mb-4 uppercase text-xs tracking-widest flex items-center gap-2">
-                <FileText className="w-4 h-4 text-slate-400" /> Article Contents
-              </h4>
-              <ul className="space-y-3 font-sans text-sm">
-                <li><a href="#section-1" onClick={(e) => scrollToHeading(e, 'section-1')} className="text-indigo-600 font-medium hover:underline">1. Introduction to the Topic</a></li>
-                <li className="pl-4"><a href="#section-1-1" onClick={(e) => scrollToHeading(e, 'section-1-1')} className="text-slate-600 hover:text-indigo-600">Key Benefits</a></li>
-                <li><a href="#section-2" onClick={(e) => scrollToHeading(e, 'section-2')} className="text-indigo-600 font-medium hover:underline">2. Step-by-Step Instructions</a></li>
-                <li><a href="#section-3" onClick={(e) => scrollToHeading(e, 'section-3')} className="text-indigo-600 font-medium hover:underline">3. Troubleshooting</a></li>
-              </ul>
-            </div>
-
-            {/* Article Body */}
-            {renderMockContent()}
-
-            {/* Previous / Next Navigation */}
-            <div className="mt-16 pt-8 border-t border-slate-100 grid grid-cols-1 sm:grid-cols-2 gap-4 font-sans">
-              {prevArticle ? (
-                <button
-                  onClick={() => openArticle(prevArticle.category.id, prevArticle.id)}
-                  className="flex items-center gap-4 text-left p-4 rounded-2xl border border-slate-200 hover:border-indigo-300 hover:bg-slate-50 transition-all group"
-                >
-                  <div className="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center shrink-0 group-hover:bg-white group-hover:text-indigo-600 transition-colors">
-                    <ArrowLeft className="w-5 h-5 text-slate-500 group-hover:text-indigo-600" />
-                  </div>
-                  <div>
-                    <span className="text-[11px] font-black uppercase text-slate-400 tracking-wider block mb-1">Previous</span>
-                    <span className="font-bold text-slate-700 text-sm line-clamp-2 group-hover:text-indigo-700">{prevArticle.title}</span>
-                  </div>
-                </button>
-              ) : <div></div>}
-
-              {nextArticle ? (
-                <button
-                  onClick={() => openArticle(nextArticle.category.id, nextArticle.id)}
-                  className="flex items-center justify-end gap-4 text-right p-4 rounded-2xl border border-slate-200 hover:border-indigo-300 hover:bg-slate-50 transition-all group"
-                >
-                  <div>
-                    <span className="text-[11px] font-black uppercase text-slate-400 tracking-wider block mb-1">Next</span>
-                    <span className="font-bold text-slate-700 text-sm line-clamp-2 group-hover:text-indigo-700">{nextArticle.title}</span>
-                  </div>
-                  <div className="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center shrink-0 group-hover:bg-white group-hover:text-indigo-600 transition-colors">
-                    <ArrowRight className="w-5 h-5 text-slate-500 group-hover:text-indigo-600" />
-                  </div>
-                </button>
-              ) : <div></div>}
-            </div>
-
-          </div>
-        </div>
-
-        {/* Right Sidebar: In-page ToC (Desktop only) */}
-        <div className="hidden xl:block w-1/4 shrink-0 relative">
-          <div className="sticky top-28">
-            <div className="bg-white rounded-2xl border border-slate-100 p-6 shadow-sm">
-              <h4 className="font-extrabold text-slate-800 mb-6 uppercase text-xs tracking-widest flex items-center gap-2 pb-4 border-b border-slate-100">
-                <FileText className="w-4 h-4 text-indigo-400" /> Article Contents
-              </h4>
-
-              {/* Scrollspy Navigation */}
-              <nav className="relative before:absolute before:inset-y-0 before:left-[3px] before:w-[2px] before:bg-slate-100">
-                {/* Animated Active Indicator */}
-                <ul className="space-y-4 font-sans text-sm relative">
-                  <li className="relative">
-                    <a href="#section-1"
-                      onClick={(e) => scrollToHeading(e, 'section-1')}
-                      className={`pl-4 block transition-colors ${activeHeading === 'section-1' ? 'text-indigo-600 font-bold' : 'text-slate-500 hover:text-slate-800'}`}
-                    >
-                      {activeHeading === 'section-1' && <span className="absolute left-0 top-1.5 w-2 h-2 rounded-full bg-indigo-600"></span>}
-                      1. Introduction to the Topic
-                    </a>
-                  </li>
-                  <li className="relative">
-                    <a href="#section-1-1"
-                      onClick={(e) => scrollToHeading(e, 'section-1-1')}
-                      className={`pl-8 block text-[13px] transition-colors ${activeHeading === 'section-1-1' ? 'text-indigo-600 font-bold' : 'text-slate-500 hover:text-slate-800'}`}
-                    >
-                      {activeHeading === 'section-1-1' && <span className="absolute left-0 top-1.5 w-2 h-2 rounded-full bg-indigo-600"></span>}
-                      Key Benefits
-                    </a>
-                  </li>
-                  <li className="relative">
-                    <a href="#section-2"
-                      onClick={(e) => scrollToHeading(e, 'section-2')}
-                      className={`pl-4 block transition-colors ${activeHeading === 'section-2' ? 'text-indigo-600 font-bold' : 'text-slate-500 hover:text-slate-800'}`}
-                    >
-                      {activeHeading === 'section-2' && <span className="absolute left-0 top-1.5 w-2 h-2 rounded-full bg-indigo-600"></span>}
-                      2. Step-by-Step Instructions
-                    </a>
-                  </li>
-                  <li className="relative">
-                    <a href="#section-3"
-                      onClick={(e) => scrollToHeading(e, 'section-3')}
-                      className={`pl-4 block transition-colors ${activeHeading === 'section-3' ? 'text-indigo-600 font-bold' : 'text-slate-500 hover:text-slate-800'}`}
-                    >
-                      {activeHeading === 'section-3' && <span className="absolute left-0 top-1.5 w-2 h-2 rounded-full bg-indigo-600"></span>}
-                      3. Troubleshooting
-                    </a>
-                  </li>
-                </ul>
-              </nav>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    );
-  };
-
   return (
-    <div className="font-sans min-h-screen flex flex-col bg-[#fdfdfd] selection:bg-indigo-200">
+    <div className="font-sans min-h-screen flex flex-col bg-[#f4f7fb] selection:bg-blue-200">
       <Header />
-
-      {/* Global Header (Applies to both views) */}
-      <section className="bg-gradient-to-r from-[#1e3a8a] to-[#3b82f6] pt-20 pb-16 px-4 relative overflow-hidden border-b border-blue-900">
-        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.03] mix-blend-overlay"></div>
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-indigo-600/20 blur-[120px] rounded-full pointer-events-none"></div>
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
-          <div className="flex flex-col items-center md:items-start text-center md:text-left">
-            <div className="flex justify-center md:justify-start mb-6">
-              <img src="/favicon.svg" alt="National Emblem" className="w-20 h-20 md:w-24 md:h-24 drop-shadow-lg" />
-            </div>
-
-            <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight text-white mb-4">
-              User Guide
-            </h1>
-            <p className="text-slate-400 text-lg md:text-xl max-w-xl font-light">
-              Find detailed documentation, tutorials, and answers to help you navigate the National Legal Portal.
-            </p>
+      
+      {/* Banner Area */}
+      <section className="bg-gradient-to-r from-[#1e3a8a] to-[#3b82f6] pt-12 pb-12 px-4 relative">
+        <div className="max-w-7xl mx-auto relative z-10 text-white">
+          <div className="flex items-center gap-2 text-sm text-blue-200 mb-6 font-medium">
+             <a href="/" className="hover:text-white transition-colors">Home</a>
+             <ChevronRight className="w-4 h-4" />
+             <span className="text-white">User Guide</span>
           </div>
-
+          <h1 className="text-4xl md:text-5xl font-bold uppercase tracking-wide mb-4">
+            User Guide
+          </h1>
+          <p className="text-base md:text-lg text-blue-100 max-w-3xl font-light">
+            A comprehensive collection of guides, documents, and tutorial videos on all features of the National Legal Portal.
+          </p>
         </div>
       </section>
 
-      <main className="flex-grow max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-10 flex flex-col lg:flex-row gap-8 lg:gap-12 w-full relative z-20">
+      {/* Overlapping Search Bar */}
+      <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 relative -mt-8 z-20 mb-8">
+         <div className="bg-white p-2 rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.08)] flex items-center border border-gray-100">
+            <div className="pl-4 pr-3 text-gray-400">
+               <Search className="w-5 h-5" />
+            </div>
+            <input 
+              type="text" 
+              placeholder="Enter document keyword to search..." 
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="flex-grow py-3 bg-transparent outline-none text-gray-800 placeholder-gray-400 font-medium"
+            />
+            <button className="bg-[#1e40af] hover:bg-[#1e3a8a] text-white px-8 py-3 rounded-lg font-semibold transition-colors flex items-center gap-2 shadow-sm whitespace-nowrap">
+              <Search className="w-4 h-4" /> Search
+            </button>
+         </div>
+      </div>
 
-        {/* Universal Left Sidebar */}
-        <aside className="w-full lg:w-[300px] lg:flex-shrink-0 relative z-20">
-          {renderSidebar()}
+      <main className="flex-grow max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 pb-10 flex flex-col lg:flex-row gap-6">
+        
+        {/* Left Sidebar Filter */}
+        <aside className="w-full lg:w-1/4 shrink-0">
+          <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 sticky top-24">
+             <div className="flex items-center gap-2 font-bold text-gray-800 mb-6 border-b border-gray-100 pb-4">
+                <Settings2 className="w-5 h-5 text-blue-600" />
+                <span>Filters</span>
+             </div>
+             
+             {/* Topics Section */}
+             <div className="mb-8">
+                <h3 className="font-bold text-xs uppercase tracking-wider text-gray-500 mb-4">Topics</h3>
+                <ul className="space-y-3">
+                   {topics.map((topic, idx) => (
+                     <li key={idx} className="flex items-center gap-3">
+                        <input type="checkbox" id={`topic-${idx}`} className="w-4 h-4 text-blue-600 rounded border-gray-300 focus:ring-blue-600 cursor-pointer" />
+                        <label htmlFor={`topic-${idx}`} className="text-sm text-gray-700 cursor-pointer hover:text-blue-600 transition-colors">
+                           {topic}
+                        </label>
+                     </li>
+                   ))}
+                </ul>
+             </div>
+
+             {/* Operations Section */}
+             <div>
+                <h3 className="font-bold text-xs uppercase tracking-wider text-gray-500 mb-4">Operations</h3>
+                <ul className="space-y-3">
+                   {operations.map((op, idx) => (
+                     <li key={idx} className="flex items-center gap-3">
+                        <input type="checkbox" id={`op-${idx}`} className="w-4 h-4 text-blue-600 rounded border-gray-300 focus:ring-blue-600 cursor-pointer" />
+                        <label htmlFor={`op-${idx}`} className="text-sm text-gray-700 cursor-pointer hover:text-blue-600 transition-colors">
+                           {op}
+                        </label>
+                     </li>
+                   ))}
+                </ul>
+             </div>
+          </div>
         </aside>
 
-        {/* Dynamic Content Area */}
-        <div className="w-full min-w-0">
-          {currentView === 'mh01' ? renderMH01() : renderMH02()}
+        {/* Right Content Area */}
+        <div className="w-full lg:w-3/4">
+          <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+             
+             {/* Header */}
+             <div className="flex items-center gap-2 text-sm font-semibold text-gray-600 p-6 border-b border-gray-100 bg-gray-50/50">
+               <LayoutList className="w-4 h-4" />
+               <span>Total: <span className="text-gray-900 font-bold">{guides.length} documents</span></span>
+             </div>
+
+             {/* List */}
+             <div className="flex flex-col">
+               {guides.map((guide) => (
+                 <div key={guide.id} className="group border-b border-gray-100 last:border-b-0 hover:bg-blue-50/30 transition-colors duration-300 p-6 flex flex-col md:flex-row gap-5">
+                    {/* Icon */}
+                    <div className="shrink-0 pt-1">
+                       <div className={`w-10 h-12 rounded-lg flex items-center justify-center border shadow-sm ${guide.fileColor}`}>
+                          <FileText className="w-5 h-5" />
+                       </div>
+                    </div>
+
+                    {/* Main Content */}
+                    <div className="flex-grow">
+                       <div className="flex flex-col xl:flex-row xl:justify-between xl:items-start gap-4">
+                          <div className="flex-1">
+                            <h3 className="text-[15px] font-bold text-gray-900 mb-1.5 group-hover:text-[#1e3a8a] transition-colors">
+                              {guide.title}
+                            </h3>
+                            <div className="flex items-center flex-wrap gap-2 text-[13px] text-gray-500 mb-3">
+                               <span className="font-bold text-gray-700">{guide.format}</span>
+                               <span className="w-1 h-1 rounded-full bg-gray-300"></span>
+                               <span>{guide.filename}</span>
+                               <span className="w-1 h-1 rounded-full bg-gray-300"></span>
+                               <span>{guide.date}</span>
+                            </div>
+                            <div className="flex flex-wrap gap-1.5 mb-3">
+                               {guide.badges.map((badge, bIdx) => (
+                                 <span key={bIdx} className="px-2 py-0.5 bg-blue-50 text-blue-700 text-[11px] font-bold uppercase tracking-wider rounded border border-blue-100">
+                                   {badge}
+                                 </span>
+                               ))}
+                            </div>
+                            <p className="text-sm text-gray-600 leading-relaxed mb-3">
+                              {guide.desc}
+                            </p>
+                            <button className="text-[13px] font-medium text-blue-600 hover:text-blue-800 flex items-center gap-1 group/btn">
+                               <ChevronDown className="w-3.5 h-3.5 group-hover/btn:translate-y-0.5 transition-transform" /> Read more
+                            </button>
+                          </div>
+
+                          {/* Action Buttons */}
+                          <div className="flex flex-row gap-2 shrink-0 xl:pt-0 pt-2">
+                             <button className="flex items-center justify-center gap-1.5 px-3 py-1.5 bg-blue-50/50 hover:bg-blue-100 text-blue-600 rounded-lg text-[13px] font-semibold transition-colors border border-blue-100 whitespace-nowrap">
+                               <Eye className="w-3.5 h-3.5" /> View
+                             </button>
+                             <button className="flex items-center justify-center gap-1.5 px-3 py-1.5 bg-white hover:bg-gray-50 text-gray-700 rounded-lg text-[13px] font-semibold transition-colors border border-gray-200 whitespace-nowrap shadow-sm">
+                               <Download className="w-3.5 h-3.5" /> Download
+                             </button>
+                          </div>
+                       </div>
+                    </div>
+                 </div>
+               ))}
+             </div>
+
+             {/* Pagination */}
+             <div className="p-6 border-t border-gray-100 flex justify-center bg-gray-50/30">
+                <div className="flex items-center gap-2">
+                   <button className="w-9 h-9 rounded-md border border-gray-200 flex items-center justify-center text-gray-400 hover:bg-gray-50 transition-colors disabled:opacity-50" disabled>
+                      <ChevronLeft className="w-4 h-4" />
+                   </button>
+                   <button className="w-9 h-9 rounded-md bg-[#1e40af] text-white text-sm font-bold flex items-center justify-center shadow-sm">
+                      1
+                   </button>
+                   <button className="w-9 h-9 rounded-md border border-gray-200 bg-white text-gray-600 text-sm font-bold hover:bg-gray-50 hover:text-blue-600 transition-colors flex items-center justify-center">
+                      2
+                   </button>
+                   <button className="w-9 h-9 rounded-md border border-gray-200 bg-white text-gray-600 hover:bg-gray-50 transition-colors flex items-center justify-center">
+                      <ChevronRight className="w-4 h-4" />
+                   </button>
+                </div>
+             </div>
+          </div>
         </div>
 
       </main>
@@ -523,12 +289,5 @@ const UserGuide = () => {
     </div>
   );
 };
-
-// Mini icon helper
-const BoltIcon = ({ className }) => (
-  <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-  </svg>
-);
 
 export default UserGuide;
