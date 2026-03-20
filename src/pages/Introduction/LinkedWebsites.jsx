@@ -86,12 +86,15 @@ const LinkedWebsites = () => {
       {/* Target: CPLQG-EN-224.MH01: Linked portal system section */}
       
       {/* Decorative Top Banner */}
-      <section className="bg-slate-900 border-b border-slate-800 text-white pt-20 pb-24 px-4 relative overflow-hidden">
+      <section className="bg-gradient-to-r from-[#1e3a8a] to-[#3b82f6] border-b border-blue-900 text-white pt-20 pb-24 px-4 relative overflow-hidden">
          {/* Abstract background */}
          <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/connected.png')] opacity-20 mix-blend-overlay"></div>
          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-2xl h-64 bg-blue-600/20 blur-[100px] rounded-full point-events-none"></div>
          
-         <div className="max-w-6xl mx-auto text-center relative z-10">
+         <div className="max-w-6xl mx-auto text-center relative z-10 flex flex-col items-center">
+            <div className="flex justify-center mb-6">
+              <img src="/favicon.svg" alt="National Emblem" className="w-20 h-20 md:w-24 md:h-24 drop-shadow-lg" />
+            </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 tracking-tight text-white drop-shadow-md">
               Linked <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400">Websites</span>
             </h1>
