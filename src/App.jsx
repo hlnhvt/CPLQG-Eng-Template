@@ -20,6 +20,8 @@ import UnsubscribePage from './pages/Notifications/UnsubscribePage';
 
 import LegalDocumentSystemPage from './pages/LegalDocumentSystem';
 import DocumentDetail from './pages/LegalDocumentSystem/DocumentDetail';
+import ImportantPolicySummaries from './pages/LegalDocumentSystem/ImportantPolicySummaries';
+import PolicySummaryDetail from './pages/LegalDocumentSystem/PolicySummaryDetail';
 
 function App() {
   return (
@@ -46,6 +48,8 @@ function App() {
         {/* Legal Document System Routes */}
         <Route path="/legal-document-system" element={<LegalDocumentSystemPage />} />
         <Route path="/legal-document/:id" element={<DocumentDetail />} />
+        <Route path="/policy-summaries" element={<ImportantPolicySummaries />} />
+        <Route path="/policy-summary/:id" element={<PolicySummaryDetail />} />
       </Routes>
     </Router>
   );

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
-import { Download, Printer, Search, ZoomIn, ZoomOut, Maximize, RotateCw, MoreVertical, LayoutGrid, Bookmark, Paperclip, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Download, Printer, Search, ZoomIn, ZoomOut, Maximize, RotateCw, MoreVertical, LayoutGrid, Bookmark, Paperclip, ChevronLeft, ChevronRight, ChevronDown } from 'lucide-react';
 
 const DocumentDetail = () => {
   const { id } = useParams();
