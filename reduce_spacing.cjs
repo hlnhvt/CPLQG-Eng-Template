@@ -16,7 +16,7 @@ function walk(dir) {
   return results;
 }
 
-const files = walk(path.join(__dirname, 'src/pages'));
+const files = walk(path.join(__dirname, 'src/components'));
 
 files.forEach(file => {
   let content = fs.readFileSync(file, 'utf8');

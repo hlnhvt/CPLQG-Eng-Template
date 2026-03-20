@@ -25,7 +25,7 @@ const TopBar = () => {
 
         {/* Left: Logo & Title */}
         <div className="flex items-center space-x-3">
-          <div className="w-12 h-12 rounded-full flex items-center justify-center overflow-hidden border-2 border-yellow-400">
+          <div className="w-12 h-12 rounded-full flex items-center justify-center overflow-hidden border-yellow-400">
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Emblem_of_Vietnam.svg/1200px-Emblem_of_Vietnam.svg.png" alt="Emblem" className="w-10 h-10 object-contain" />
           </div>
           <span className="font-bold text-lg tracking-wide shadow-sm drop-shadow-md">NATIONAL LAW PORTAL</span>

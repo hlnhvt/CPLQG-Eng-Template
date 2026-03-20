@@ -44,7 +44,7 @@ const SubscribePage = () => {
       <Header />
       
       {/* CPLQG-EN-228.MH01: Hero Section */}
-      <section className="bg-gradient-to-r from-[#1e3a8a] to-[#3b82f6] text-white py-12 px-4 relative overflow-hidden">
+      <section className="bg-gradient-to-r from-[#1e3a8a] to-[#3b82f6] text-white pt-16 pb-24 px-4 relative overflow-hidden">
         {/* Abstract Backgrounds */}
         <div className="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] mix-blend-overlay"></div>
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-500/20 rounded-full blur-[100px] pointer-events-none"></div>

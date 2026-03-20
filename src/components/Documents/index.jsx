@@ -10,7 +10,7 @@ const Documents = () => {
   ];
 
   return (
-    <section className="mt-24 sm:mt-16 w-full max-w-[1240px] mx-auto px-4 sm:px-0">
+    <section className="mt-4 w-full max-w-[1240px] mx-auto px-4 sm:px-0">
       <h2 className="text-2xl font-bold text-brand-blue mb-4 flex items-center">
         Recently promulgated legal documents
       </h2>

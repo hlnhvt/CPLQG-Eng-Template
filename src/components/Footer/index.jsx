@@ -3,7 +3,7 @@ import { Facebook } from 'lucide-react';
 
 const Footer = () => {
   return (
-    <footer className="w-full mt-16 font-sans">
+    <footer className="w-full mt-10 font-sans">
       <div className="bg-[#1e60e0] text-white text-center py-6 relative overflow-hidden text-[13px] md:text-sm shadow-[0_-4px_10px_rgba(0,0,0,0.1)]">
         {/* Subtle background overlay */}
         <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/black-scales.png')] mix-blend-overlay"></div>

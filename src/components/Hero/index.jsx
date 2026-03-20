@@ -3,44 +3,45 @@ import { Search } from 'lucide-react';
 
 const Hero = () => {
   return (
-    <div className="relative bg-brand-blue text-white overflow-hidden" style={{ minHeight: '400px' }}>
-      {/* Background patterns and map placeholder */}
-      <div className="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] bg-repeat"></div>
-      <div className="absolute top-0 right-0 h-full w-1/2 opacity-30 bg-center bg-no-repeat bg-contain" style={{ backgroundImage: "url('https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Location_Vietnam_ASEAN.svg/1200px-Location_Vietnam_ASEAN.svg.png')" }}></div>
+    <div className="relative text-white overflow-hidden bg-center bg-cover bg-no-repeat w-full" style={{ minHeight: '520px', backgroundImage: "url('/hero-bg-3.png')" }}>
+      {/* Subtle overlay only if needed, the image itself might be sufficient. Adding a very light gradient to ensure text readability */}
+      <div className="absolute inset-0 bg-gradient-to-r from-blue-950/70 via-blue-900/30 to-transparent"></div>
 
-      <div className="relative max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
-        <div className="max-w-3xl">
-          <h2 className="text-2xl sm:text-3xl font-light italic mb-2 tracking-wide text-blue-100">
+      <div className="relative max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 flex h-full">
+        <div className="max-w-3xl flex flex-col justify-center">
+          <h2 className="text-3xl sm:text-[36px] font-bold mb-1 leading-tight text-white tracking-wide">
             Accompanying
           </h2>
-          <h1 className="text-3xl sm:text-4xl font-light italic mb-4 tracking-wide text-blue-100">
+          <h2 className="text-3xl sm:text-[36px] font-bold mb-3 leading-tight text-white tracking-wide">
             people and businesses
-          </h1>
-          <h1 className="text-4xl sm:text-6xl font-extrabold italic tracking-tight mb-12 uppercase" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.3)' }}>
+          </h2>
+          <h1 className="text-4xl sm:text-[54px] font-extrabold italic tracking-wider mb-10 text-white shadow-sm drop-shadow-md uppercase">
             ENTERING THE NEW ERA
           </h1>
 
-          <div className="flex flex-col sm:flex-row items-center gap-6 mt-8">
-            <div className="flex gap-4">
-              <button className="w-14 h-14 rounded-full border-2 border-white/40 flex items-center justify-center hover:bg-white/10 transition-colors tooltip relative group">
-                <span className="material-icons opacity-90"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></span>
+          <div className="flex flex-col sm:flex-row items-center gap-4 w-full">
+            {/* 3 Circular Outline Buttons */}
+            <div className="flex gap-3">
+              <button className="w-11 h-11 rounded-full border border-white/60 flex items-center justify-center hover:bg-white/10 transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="12 2 2 7 22 7 12 2"/><line x1="6" x2="6" y1="22" y2="7"/><line x1="18" x2="18" y1="22" y2="7"/><line x1="12" x2="12" y1="22" y2="7"/><line x1="2" x2="22" y1="22" y2="22"/></svg>
               </button>
-              <button className="w-14 h-14 rounded-full border-2 border-white/40 flex items-center justify-center hover:bg-white/10 transition-colors tooltip relative group">
-                <span className="material-icons opacity-90"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg></span>
+              <button className="w-11 h-11 rounded-full border border-white/60 flex items-center justify-center hover:bg-white/10 transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
               </button>
-              <button className="w-14 h-14 rounded-full border-2 border-white/40 flex items-center justify-center hover:bg-white/10 transition-colors tooltip relative group">
-                <span className="material-icons opacity-90"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></span>
+              <button className="w-11 h-11 rounded-full border border-white/60 flex items-center justify-center hover:bg-white/10 transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="16" x2="8" y1="13" y2="13"/><line x1="16" x2="8" y1="17" y2="17"/><line x1="10" x2="8" y1="9" y2="9"/></svg>
               </button>
             </div>
 
-            <div className="relative w-full max-w-lg mt-4 sm:mt-0">
+            {/* Search Bar */}
+            <div className="relative w-full sm:max-w-md mt-4 sm:mt-0 flex-grow">
               <input
                 type="text"
                 placeholder="Quick search for legal documents"
-                className="w-full pl-6 pr-14 py-4 rounded-full text-gray-800 focus:outline-none focus:ring-2 focus:ring-brand-light-blue shadow-lg"
+                className="w-full pl-6 pr-12 py-3 bg-white rounded-full text-gray-800 placeholder-gray-400 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-md"
               />
-              <button className="absolute right-2 top-2 bottom-2 bg-brand-blue text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-blue-800 transition-colors">
-                <Search size={20} />
+              <button className="absolute right-1.5 top-1.5 bottom-1.5 bg-[#1e3a8a] text-white w-9 h-9 rounded-full flex items-center justify-center hover:bg-blue-800 transition-colors">
+                <Search size={16} />
               </button>
             </div>
           </div>
