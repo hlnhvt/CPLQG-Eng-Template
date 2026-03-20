@@ -22,6 +22,8 @@ import LegalDocumentSystemPage from './pages/LegalDocumentSystem';
 import DocumentDetail from './pages/LegalDocumentSystem/DocumentDetail';
 import ImportantPolicySummaries from './pages/LegalDocumentSystem/ImportantPolicySummaries';
 import PolicySummaryDetail from './pages/LegalDocumentSystem/PolicySummaryDetail';
+import DraftLegislation from './pages/LegalDocumentSystem/DraftLegislation';
+import DraftLegislationDetail from './pages/LegalDocumentSystem/DraftLegislationDetail';
 
 function App() {
   return (
@@ -50,6 +52,8 @@ function App() {
         <Route path="/legal-document/:id" element={<DocumentDetail />} />
         <Route path="/policy-summaries" element={<ImportantPolicySummaries />} />
         <Route path="/policy-summary/:id" element={<PolicySummaryDetail />} />
+        <Route path="/draft-legislation" element={<DraftLegislation />} />
+        <Route path="/draft-legislation/:id" element={<DraftLegislationDetail />} />
       </Routes>
     </Router>
   );

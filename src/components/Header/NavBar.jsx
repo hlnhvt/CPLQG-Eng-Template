@@ -21,7 +21,8 @@ const NavBar = () => {
 
   const legalDocSubMenu = [
     { label: 'Search & Latest Updates', path: '/legal-document-system' },
-    { label: 'Important Policy Summaries', path: '/policy-summaries' }
+    { label: 'Important Policy Summaries', path: '/policy-summaries' },
+    { label: 'Draft Legislation', path: '/draft-legislation' }
   ];
 
   const isActive = (path) => {
