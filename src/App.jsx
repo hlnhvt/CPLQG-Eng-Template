@@ -18,6 +18,9 @@ import LegalFAQ from './pages/Introduction/LegalFAQ';
 import SubscribePage from './pages/Notifications/SubscribePage';
 import UnsubscribePage from './pages/Notifications/UnsubscribePage';
 
+import LegalDocumentSystemPage from './pages/LegalDocumentSystem';
+import DocumentDetail from './pages/LegalDocumentSystem/DocumentDetail';
+
 function App() {
   return (
     <Router>
@@ -39,6 +42,10 @@ function App() {
         {/* Notification Routes */}
         <Route path="/subscribe" element={<SubscribePage />} />
         <Route path="/unsubscribe" element={<UnsubscribePage />} />
+
+        {/* Legal Document System Routes */}
+        <Route path="/legal-document-system" element={<LegalDocumentSystemPage />} />
+        <Route path="/legal-document/:id" element={<DocumentDetail />} />
       </Routes>
     </Router>
   );

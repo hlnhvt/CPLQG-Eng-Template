@@ -51,9 +51,9 @@ const TopBar = () => {
             <ArrowUpRight size={14} />
           </a>
 
-          <div className="w-9 h-9 bg-[#2e4385] rounded-full flex items-center justify-center font-bold border border-white/20 hover:bg-[#1e2f65] cursor-pointer transition-colors shadow-sm">
+          {/* <div className="w-9 h-9 bg-[#2e4385] rounded-full flex items-center justify-center font-bold border border-white/20 hover:bg-[#1e2f65] cursor-pointer transition-colors shadow-sm">
             N
-          </div>
+          </div> */}
         </div>
 
       </div>

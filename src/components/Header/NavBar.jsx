@@ -19,6 +19,10 @@ const NavBar = () => {
     { label: 'Legal FAQ', path: '/introduction/legal-faq' },
   ];
 
+  const legalDocSubMenu = [
+    { label: 'Search & Latest Updates', path: '/legal-document-system' }
+  ];
+
   const isActive = (path) => {
     if (path === '/' && location.pathname !== '/') return false;
     if (path !== '/' && location.pathname.startsWith(path)) return true;
@@ -29,7 +33,7 @@ const NavBar = () => {
     { label: 'Home', path: '/', hasDropdown: false },
     { label: 'Introduction', path: '/introduction/about', hasDropdown: true, subMenu: introSubMenu },
     { label: 'Featured news', path: '#', hasDropdown: true },
-    { label: 'Legal document system', path: '#', hasDropdown: false },
+    { label: 'Legal document system', path: '/legal-document-system', hasDropdown: true, subMenu: legalDocSubMenu },
     { label: 'Corporate legal support', path: '#', hasDropdown: true },
     { label: 'Legal assistance', path: '#', hasDropdown: true },
   ];

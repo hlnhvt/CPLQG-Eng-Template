@@ -10,11 +10,11 @@ const Footer = () => {
         <div className="absolute top-0 right-0 h-full w-full opacity-40 bg-gradient-to-l from-blue-900/60 to-transparent"></div>
 
         <div className="max-w-[1240px] mx-auto px-4 relative z-10 flex flex-col items-center">
-          <div className="w-12 h-12 rounded-full flex items-center justify-center overflow-hidden border border-yellow-400 mb-3 shadow-md">
+          <div className="w-12 h-12 rounded-full flex items-center justify-center overflow-hidden mb-3 shadow-md">
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Emblem_of_Vietnam.svg/1200px-Emblem_of_Vietnam.svg.png" alt="Emblem" className="w-10 h-10 object-contain" />
           </div>
 
-          <h2 className="text-xl md:text-2xl font-bold tracking-wide mb-1 shadow-sm drop-shadow-md">
+          <h2 className="text-xl md:text-2xl font-bold mb-1 shadow-sm drop-shadow-md">
             NATIONAL LAW PORTAL
           </h2>
           <p className="mb-2 text-gray-100 font-medium">Supervising authority: Ministry of Justice</p>
