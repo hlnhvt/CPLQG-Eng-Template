@@ -50,17 +50,11 @@ const ComplianceTopicDetail = () => {
       {/* Hero Header */}
       <div className="bg-gradient-to-b from-[#1e3a8a] to-[#1e4fad] pt-8 pb-16">
          <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex justify-center mb-4">
-              <img src="/favicon.svg" alt="National Emblem" className="w-20 h-20 md:w-24 md:h-24 drop-shadow-lg" />
-            </div>
 
             <div className="flex flex-col md:flex-row gap-8 justify-between items-center">
                <div className="w-full md:w-2/3 text-center md:text-left">
-                  <div className="flex items-center gap-3 mb-4">
-                     <div className="bg-amber-500 p-2 rounded-lg text-gray-900">
-                        <Target size={24} />
-                     </div>
-                     <span className="text-amber-400 font-bold tracking-wider uppercase text-sm">{topic.category}</span>
+                  <div className="flex justify-center mb-4">
+                  <img src="/favicon.svg" alt="National Emblem" className="w-20 h-20 md:w-24 md:h-24 drop-shadow-lg" />
                   </div>
                   <h1 className="text-3xl md:text-5xl font-extrabold text-white leading-tight mb-4 tracking-tight">
                      {topic.title}
