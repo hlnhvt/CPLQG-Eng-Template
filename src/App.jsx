@@ -40,6 +40,11 @@ import DocumentsAndContracts from './pages/CorporateLegalSupport/DocumentsAndCon
 import DocumentContractDetail from './pages/CorporateLegalSupport/DocumentContractDetail';
 import FAQForInternationalEnterprises from './pages/CorporateLegalSupport/FAQForInternationalEnterprises';
 
+import PhotoLibrary from './pages/Multimedia/PhotoLibrary';
+import PhotoDetail from './pages/Multimedia/PhotoDetail';
+import VideoLibrary from './pages/Multimedia/VideoLibrary';
+import VideoDetail from './pages/Multimedia/VideoDetail';
+
 import AboutLegalAidSystem from './pages/LegalAssistance/AboutLegalAidSystem';
 import LegalAidNews from './pages/LegalAssistance/LegalAidNews';
 import LegalAidNewsDetail from './pages/LegalAssistance/LegalAidNewsDetail';
@@ -105,6 +110,12 @@ function App() {
         <Route path="/legal-aid/individuals/:id" element={<LegalAidIndividualDetail />} />
         <Route path="/legal-aid/documents" element={<LegalAidDocuments />} />
         <Route path="/legal-aid/documents/:id" element={<LegalAidDocumentDetail />} />
+
+        {/* Multimedia Routes */}
+        <Route path="/multimedia/photos" element={<PhotoLibrary />} />
+        <Route path="/multimedia/photos/:id" element={<PhotoDetail />} />
+        <Route path="/multimedia/videos" element={<VideoLibrary />} />
+        <Route path="/multimedia/videos/:id" element={<VideoDetail />} />
       </Routes>
     </Router>
   );

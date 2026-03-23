@@ -34,7 +34,9 @@ const NavBar = () => {
   const featuredNewsSubMenu = [
     { label: 'Policy Highlights', path: '/policy-highlights' },
     { label: 'Legal Reform News', path: '/legal-reform-news' },
-    { label: 'International Cooperation', path: '/international-cooperation' }
+    { label: 'International Cooperation', path: '/international-cooperation' },
+    { label: 'Photo Library', path: '/multimedia/photos' },
+    { label: 'Video Library', path: '/multimedia/videos' },
   ];
 
   const corporateSupportSubMenu = [
