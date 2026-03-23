@@ -57,6 +57,7 @@ const NavBar = () => {
     { label: 'Home', path: '/', hasDropdown: false },
     { label: 'Introduction', path: '/introduction/about', hasDropdown: true, subMenu: introSubMenu },
     { label: 'Featured news', path: '#', hasDropdown: true, subMenu: featuredNewsSubMenu },
+    { label: 'Forums & Events', path: '/forums-events', hasDropdown: false },
     { label: 'Legal document system', path: '/legal-document-system', hasDropdown: true, subMenu: legalDocSubMenu },
     { label: 'Corporate legal support', path: '/corporate-support', hasDropdown: true, subMenu: corporateSupportSubMenu },
     { label: 'Legal assistance', path: '/legal-aid/about', hasDropdown: true, subMenu: legalAssistanceSubMenu },

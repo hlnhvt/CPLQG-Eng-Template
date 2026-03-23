@@ -40,6 +40,9 @@ import DocumentsAndContracts from './pages/CorporateLegalSupport/DocumentsAndCon
 import DocumentContractDetail from './pages/CorporateLegalSupport/DocumentContractDetail';
 import FAQForInternationalEnterprises from './pages/CorporateLegalSupport/FAQForInternationalEnterprises';
 
+import ForumsEvents from './pages/ForumsEvents';
+import EventDetail from './pages/ForumsEvents/EventDetail';
+
 import PhotoLibrary from './pages/Multimedia/PhotoLibrary';
 import PhotoDetail from './pages/Multimedia/PhotoDetail';
 import VideoLibrary from './pages/Multimedia/VideoLibrary';
@@ -110,6 +113,10 @@ function App() {
         <Route path="/legal-aid/individuals/:id" element={<LegalAidIndividualDetail />} />
         <Route path="/legal-aid/documents" element={<LegalAidDocuments />} />
         <Route path="/legal-aid/documents/:id" element={<LegalAidDocumentDetail />} />
+
+        {/* Forums & Events Routes */}
+        <Route path="/forums-events" element={<ForumsEvents />} />
+        <Route path="/forums-events/:id" element={<EventDetail />} />
 
         {/* Multimedia Routes */}
         <Route path="/multimedia/photos" element={<PhotoLibrary />} />
