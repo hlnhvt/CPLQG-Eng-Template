@@ -11,7 +11,7 @@ const Footer = () => {
 
         <div className="max-w-[1240px] mx-auto px-4 relative z-10 flex flex-col items-center">
           <div className="w-12 h-12 rounded-full flex items-center justify-center overflow-hidden mb-3 shadow-md">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Emblem_of_Vietnam.svg/1200px-Emblem_of_Vietnam.svg.png" alt="Emblem" className="w-10 h-10 object-contain" />
+            <img src="/logo.png" alt="Emblem" className="w-10 h-10 object-contain" />
           </div>
 
           <h2 className="text-xl md:text-2xl font-bold mb-1 shadow-sm drop-shadow-md">
